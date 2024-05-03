@@ -1,11 +1,11 @@
 import { Character, validateCharacter } from "../src/Character";
 
-describe("Character", () => {
+describe("testando a validação dos personagens", () => {
     let personagem: Character;
 
     beforeEach(() => {
         personagem = {
-            nome: "",
+            nome: "jefin",
             vida: 100,
             defesa: 10,
             forca: 8
@@ -13,6 +13,7 @@ describe("Character", () => {
     });
 
     it('deve retornar false para nome vazio', () =>{
+        personagem.nome = ''
         expect(validateCharacter(personagem)).toBe(false);
     });
 
@@ -45,10 +46,6 @@ describe("Character", () => {
     });
 
     it('deve retornar true para informacoes validas do personagem', () =>{
-        personagem.nome = "jefim";
-        personagem.vida = 250;
-        personagem.defesa = 12;
-        personagem.forca = 32;
         expect(validateCharacter(personagem)).toBe(true);
     });
 });
